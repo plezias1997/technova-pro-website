@@ -780,6 +780,7 @@
                 id="contact-form"
                 name="contact"
                 method="POST"
+                netlify="true"
                 data-netlify="true"
               >
                 <input type="hidden" name="form-name" value="contact" />
@@ -849,11 +850,13 @@
 
         if (!form || !success || !error || !submitButton) return;
 
-        function encode(data) {
-          return Object.keys(data)
-            .map(function (key) {
+        function encode(formData) {
+          return Array.from(formData.entries())
+            .map(function (entry) {
               return (
-                encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+                encodeURIComponent(entry[0]) +
+                "=" +
+                encodeURIComponent(entry[1])
               );
             })
             .join("&");
@@ -868,18 +871,13 @@
           submitButton.setAttribute("aria-busy", "true");
 
           var formData = new FormData(form);
-          var data = {};
-
-          formData.forEach(function (value, key) {
-            data[key] = value;
-          });
 
           fetch("/", {
             method: "POST",
             headers: {
               "Content-Type": "application/x-www-form-urlencoded",
             },
-            body: encode(data),
+            body: encode(formData),
           })
             .then(function (response) {
               if (!response.ok) throw new Error("Request failed");
