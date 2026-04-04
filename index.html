@@ -797,6 +797,8 @@
                   type="text"
                   name="name"
                   placeholder="Your Name"
+                  autocomplete="name"
+                  aria-label="Your name"
                   required
                 />
 
@@ -804,12 +806,15 @@
                   type="email"
                   name="email"
                   placeholder="Your Email"
+                  autocomplete="email"
+                  aria-label="Your email"
                   required
                 />
 
                 <textarea
                   name="message"
                   placeholder="Your Message"
+                  aria-label="Your message"
                   required
                 ></textarea>
 
@@ -819,7 +824,9 @@
                   id="contact-success"
                   class="text-muted"
                   hidden
+                  role="status"
                   aria-live="polite"
+                  tabindex="-1"
                   style="color: #9fe3b0; margin-top: -2px"
                 >
                   Thank you. Your inquiry has been sent successfully.
@@ -829,7 +836,9 @@
                   id="contact-error"
                   class="text-muted"
                   hidden
+                  role="alert"
                   aria-live="polite"
+                  tabindex="-1"
                   style="color: #ff9a9a; margin-top: -2px"
                 >
                   Something went wrong. Please try again.
@@ -870,11 +879,24 @@
             .join("&");
         }
 
+        function setStatus(activeMessage) {
+          success.hidden = activeMessage !== success;
+          error.hidden = activeMessage !== error;
+
+          if (activeMessage) {
+            activeMessage.focus();
+          }
+        }
+
+        form.addEventListener("input", function () {
+          setStatus(null);
+        });
+
         form.addEventListener("submit", function (event) {
           event.preventDefault();
-          success.hidden = true;
-          error.hidden = true;
+          setStatus(null);
           submitButton.disabled = true;
+          submitButton.setAttribute("aria-disabled", "true");
           submitButton.textContent = "Sending...";
           submitButton.setAttribute("aria-busy", "true");
 
@@ -890,13 +912,14 @@
             .then(function (response) {
               if (!response.ok) throw new Error("Request failed");
               form.reset();
-              success.hidden = false;
+              setStatus(success);
             })
             .catch(function () {
-              error.hidden = false;
+              setStatus(error);
             })
             .finally(function () {
               submitButton.disabled = false;
+              submitButton.removeAttribute("aria-disabled");
               submitButton.textContent = defaultButtonText;
               submitButton.removeAttribute("aria-busy");
             });
