@@ -844,8 +844,10 @@
         var form = document.getElementById("contact-form");
         var success = document.getElementById("contact-success");
         var error = document.getElementById("contact-error");
+        var submitButton = form ? form.querySelector('button[type="submit"]') : null;
+        var defaultButtonText = submitButton ? submitButton.textContent : "";
 
-        if (!form || !success || !error) return;
+        if (!form || !success || !error || !submitButton) return;
 
         function encode(data) {
           return Object.keys(data)
@@ -861,6 +863,9 @@
           event.preventDefault();
           success.hidden = true;
           error.hidden = true;
+          submitButton.disabled = true;
+          submitButton.textContent = "Sending...";
+          submitButton.setAttribute("aria-busy", "true");
 
           var formData = new FormData(form);
           var data = {};
@@ -883,6 +888,11 @@
             })
             .catch(function () {
               error.hidden = false;
+            })
+            .finally(function () {
+              submitButton.disabled = false;
+              submitButton.textContent = defaultButtonText;
+              submitButton.removeAttribute("aria-busy");
             });
         });
       })();
