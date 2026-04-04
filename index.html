@@ -777,10 +777,10 @@
               </p>
 
               <form
+                id="contact-form"
                 name="contact"
                 method="POST"
                 data-netlify="true"
-                action="/success.html"
               >
                 <input type="hidden" name="form-name" value="contact" />
 
@@ -805,6 +805,26 @@
                 ></textarea>
 
                 <button type="submit" class="btn">Send Message</button>
+
+                <p
+                  id="contact-success"
+                  class="text-muted"
+                  hidden
+                  aria-live="polite"
+                  style="color: #9fe3b0; margin-top: -2px"
+                >
+                  Thank you. Your message has been sent successfully.
+                </p>
+
+                <p
+                  id="contact-error"
+                  class="text-muted"
+                  hidden
+                  aria-live="polite"
+                  style="color: #ff9a9a; margin-top: -2px"
+                >
+                  Something went wrong. Please try again.
+                </p>
               </form>
             </div>
           </div>
@@ -818,5 +838,54 @@
         <p>IT Hardware • Networking • Business Technology Solutions</p>
       </div>
     </footer>
+
+    <script>
+      (function () {
+        var form = document.getElementById("contact-form");
+        var success = document.getElementById("contact-success");
+        var error = document.getElementById("contact-error");
+
+        if (!form || !success || !error) return;
+
+        function encode(data) {
+          return Object.keys(data)
+            .map(function (key) {
+              return (
+                encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+              );
+            })
+            .join("&");
+        }
+
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+          success.hidden = true;
+          error.hidden = true;
+
+          var formData = new FormData(form);
+          var data = {};
+
+          formData.forEach(function (value, key) {
+            data[key] = value;
+          });
+
+          fetch("/", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: encode(data),
+          })
+            .then(function (response) {
+              if (!response.ok) throw new Error("Request failed");
+              form.reset();
+              success.hidden = false;
+            })
+            .catch(function () {
+              error.hidden = false;
+            });
+        });
+      })();
+    </script>
   </body>
 </html>
