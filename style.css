@@ -127,6 +127,31 @@ a {
   gap: 28px;
 }
 
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.lang-switcher a {
+  color: var(--muted);
+  transition: color 0.18s ease;
+}
+
+.lang-switcher a:hover,
+.lang-switcher a[aria-current="true"] {
+  color: var(--text);
+}
+
+.lang-switcher span {
+  color: rgba(255, 255, 255, 0.26);
+}
+
 .nav-links {
   display: flex;
   gap: 28px;
@@ -916,6 +941,10 @@ button:focus-visible {
     flex-direction: column-reverse;
     align-items: stretch;
     gap: 12px;
+  }
+
+  .lang-switcher {
+    justify-content: flex-start;
   }
 
   .nav-links {
