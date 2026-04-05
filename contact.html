@@ -3,19 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact | TechNova Pro</title>
+    <title>Contact TechNova Pro | Request an IT Support & Hardware Quote</title>
     <meta
       name="description"
-      content="Contact TechNova Pro for IT hardware, networking, and business technology requirements."
+      content="Contact TechNova Pro to request a quote for IT support, hardware procurement, and networking services."
     />
     <meta name="theme-color" content="#0d1422" />
     <link rel="canonical" href="https://technova-pro.com/contact.html" />
-    <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
-    <link rel="shortcut icon" href="/favicon.ico?v=2" />
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" />
     <link rel="manifest" href="/site.webmanifest" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-37M4ZJQTX5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-37M4ZJQTX5');
+    </script>
+    <link rel="preload" href="style.css" as="style" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -27,12 +31,13 @@
         </a>
 
         <div class="nav-right">
-          <nav class="nav-links">
-            <a href="services.html">Services</a>
+          <nav class="nav-links" aria-label="Primary">
+            <a href="index.html">Home</a>
             <a href="about.html">About</a>
-            <a href="contact.html" aria-current="page">Contact</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html" class="nav-contact-link" aria-current="page">Contact</a>
           </nav>
-          <a href="contact.html" class="btn">Request a Quote</a>
+          <a href="#contact-form" class="btn">Get a Quote</a>
         </div>
       </div>
     </header>
@@ -41,30 +46,67 @@
       <section class="page-hero">
         <div class="container">
           <div class="hero-label">Contact</div>
-          <h1>Send us your requirements and we will get back to you shortly.</h1>
+          <h1>Tell us what your business needs and we will respond promptly.</h1>
           <p>
-            Get in touch regarding IT hardware, networking, or business
-            technology requirements using the form below.
+            Contact us regarding hardware procurement, networking projects, or
+            ongoing business technology support.
           </p>
+        </div>
+      </section>
+
+      <section class="faq-compact">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <h2>Before You Contact Us</h2>
+              <p>
+                Quick answers to common questions before you submit your request.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-grid">
+            <article class="faq-item">
+              <h3>How quickly can you start?</h3>
+              <p>
+                We review requests promptly and usually provide next steps within
+                one business day.
+              </p>
+            </article>
+            <article class="faq-item">
+              <h3>Do you support small businesses?</h3>
+              <p>
+                Yes. We support small and growing businesses with practical,
+                right-sized solutions.
+              </p>
+            </article>
+            <article class="faq-item">
+              <h3>What areas do you cover?</h3>
+              <p>
+                We are based in Cyprus and support local business environments.
+                Remote coordination is also available where suitable.
+              </p>
+            </article>
+            <article class="faq-item">
+              <h3>Can you help with both hardware and networking?</h3>
+              <p>
+                Yes. We can combine hardware sourcing, network setup, and ongoing
+                IT support in one scope.
+              </p>
+            </article>
+          </div>
         </div>
       </section>
 
       <section class="page-shell">
         <div class="container">
+          <h2 class="visually-hidden">Contact and Quote Form</h2>
           <div class="contact-grid">
             <div class="contact-card">
-              <h3
-                style="
-                  font-size: 1.18rem;
-                  margin-bottom: 8px;
-                  letter-spacing: -0.02em;
-                "
-              >
-                Contact Information
-              </h3>
+              <h3 class="panel-title">Contact Information</h3>
               <p class="text-muted">
-                Use the details below for quote requests, service inquiries, or
-                general business communication.
+                Use the details below for quote requests, business inquiries,
+                and service discussions.
               </p>
 
               <div class="contact-block">
@@ -84,17 +126,14 @@
             </div>
 
             <div class="form-card">
-              <h3
-                style="
-                  font-size: 1.18rem;
-                  margin-bottom: 8px;
-                  letter-spacing: -0.02em;
-                "
-              >
-                Send an Inquiry
-              </h3>
+              <h3 class="panel-title">Send an Inquiry</h3>
               <p class="text-muted">
-                Send us your requirements and we will get back to you shortly.
+                Share your requirements and we will provide a clear response
+                with recommended next steps.
+              </p>
+              <p class="text-muted">
+                We typically respond within 24 hours. Professional support
+                tailored to your business.
               </p>
 
               <form
@@ -114,55 +153,89 @@
                   </label>
                 </p>
 
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your Name"
-                  autocomplete="name"
-                  aria-label="Your name"
-                  required
-                />
+                <div class="form-row">
+                  <div class="form-field">
+                    <label for="full-name">Full Name</label>
+                    <input
+                      id="full-name"
+                      type="text"
+                      name="full_name"
+                      placeholder="Enter your full name"
+                      autocomplete="name"
+                      required
+                    />
+                  </div>
 
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Your Email"
-                  autocomplete="email"
-                  aria-label="Your email"
-                  required
-                />
+                  <div class="form-field">
+                    <label for="email">Email</label>
+                    <input
+                      id="email"
+                      type="email"
+                      name="email"
+                      placeholder="Enter your business email"
+                      autocomplete="email"
+                      required
+                    />
+                  </div>
+                </div>
 
-                <textarea
-                  name="message"
-                  placeholder="Your Message"
-                  aria-label="Your message"
-                  required
-                ></textarea>
+                <div class="form-row">
+                  <div class="form-field">
+                    <label for="company">Company (Optional)</label>
+                    <input
+                      id="company"
+                      type="text"
+                      name="company"
+                      placeholder="Company name"
+                      autocomplete="organization"
+                    />
+                  </div>
+
+                  <div class="form-field">
+                    <label for="service-needed">Service Needed</label>
+                    <select id="service-needed" name="service_needed" required>
+                      <option value="" selected disabled>Select a service</option>
+                      <option value="IT Support">IT Support</option>
+                      <option value="Networking Setup">Networking Setup</option>
+                      <option value="Hardware Supply">Hardware Supply</option>
+                      <option value="Security Systems">Security Systems</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <label for="request-details">Short Description of Request</label>
+                  <textarea
+                    id="request-details"
+                    name="request_details"
+                    placeholder="Briefly describe what you need, timeline, or scope."
+                    required
+                  ></textarea>
+                </div>
 
                 <button type="submit" class="btn">Send Message</button>
 
                 <p
                   id="contact-success"
-                  class="text-muted"
+                  class="form-status form-status-success"
                   hidden
                   role="status"
                   aria-live="polite"
                   tabindex="-1"
-                  style="color: #9fe3b0; margin-top: -2px"
                 >
-                  Thank you. Your inquiry has been sent successfully.
+                  Your request has been received. We will contact you shortly.
                 </p>
 
                 <p
                   id="contact-error"
-                  class="text-muted"
+                  class="form-status form-status-error"
                   hidden
                   role="alert"
                   aria-live="polite"
                   tabindex="-1"
-                  style="color: #ff9a9a; margin-top: -2px"
                 >
-                  Something went wrong. Please try again.
+                  We could not send your request right now. Please try again in a moment.
                 </p>
               </form>
             </div>
@@ -178,15 +251,32 @@
       </div>
     </footer>
 
+    <a
+      class="whatsapp-float"
+      href="https://wa.me/35799123456?text=Hello%2C%20I%20would%20like%20to%20discuss%20your%20services."
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat with TechNova Pro on WhatsApp"
+    >
+      <span class="whatsapp-float__dot" aria-hidden="true"></span>
+      <span class="whatsapp-float__label">WhatsApp</span>
+    </a>
+
     <script>
       (function () {
         var form = document.getElementById("contact-form");
         var success = document.getElementById("contact-success");
         var error = document.getElementById("contact-error");
+        var serviceNeeded = document.getElementById("service-needed");
+        var requestDetails = document.getElementById("request-details");
         var submitButton = form
           ? form.querySelector('button[type="submit"]')
           : null;
         var defaultButtonText = submitButton ? submitButton.textContent : "";
+        var defaultRequestPlaceholder = requestDetails
+          ? requestDetails.getAttribute("placeholder")
+          : "";
+        var isSubmitting = false;
 
         if (!form || !success || !error || !submitButton) return;
 
@@ -211,19 +301,64 @@
           }
         }
 
+        function setSubmitting(state) {
+          isSubmitting = state;
+          submitButton.disabled = state;
+          submitButton.textContent = state ? "Sending..." : defaultButtonText;
+
+          if (state) {
+            submitButton.setAttribute("aria-disabled", "true");
+            submitButton.setAttribute("aria-busy", "true");
+          } else {
+            submitButton.removeAttribute("aria-disabled");
+            submitButton.removeAttribute("aria-busy");
+          }
+        }
+
+        if (serviceNeeded && requestDetails) {
+          var servicePrompts = {
+            "IT Support":
+              "Tell us the support issue, affected users/systems, and urgency.",
+            "Networking Setup":
+              "Share your site details, number of users, and networking goals.",
+            "Hardware Supply":
+              "List the equipment you need, preferred brands, and quantity.",
+            "Security Systems":
+              "Describe the security requirement (CCTV, access control, alarms, etc.).",
+            Other:
+              "Briefly describe your request, timeline, and any technical details.",
+          };
+
+          serviceNeeded.addEventListener("change", function () {
+            var selectedService = serviceNeeded.value;
+            requestDetails.setAttribute(
+              "placeholder",
+              servicePrompts[selectedService] || defaultRequestPlaceholder
+            );
+          });
+        }
+
         form.addEventListener("input", function () {
           setStatus(null);
         });
 
         form.addEventListener("submit", function (event) {
           event.preventDefault();
+          if (isSubmitting) return;
+
           setStatus(null);
-          submitButton.disabled = true;
-          submitButton.setAttribute("aria-disabled", "true");
-          submitButton.textContent = "Sending...";
-          submitButton.setAttribute("aria-busy", "true");
+          setSubmitting(true);
 
           var formData = new FormData(form);
+          var controller =
+            typeof AbortController !== "undefined"
+              ? new AbortController()
+              : null;
+          var timeoutId = controller
+            ? setTimeout(function () {
+                controller.abort();
+              }, 15000)
+            : null;
 
           fetch("/", {
             method: "POST",
@@ -231,20 +366,25 @@
               "Content-Type": "application/x-www-form-urlencoded",
             },
             body: encode(formData),
+            signal: controller ? controller.signal : undefined,
           })
             .then(function (response) {
               if (!response.ok) throw new Error("Request failed");
               form.reset();
+              if (requestDetails) {
+                requestDetails.setAttribute(
+                  "placeholder",
+                  defaultRequestPlaceholder
+                );
+              }
               setStatus(success);
             })
             .catch(function () {
               setStatus(error);
             })
             .finally(function () {
-              submitButton.disabled = false;
-              submitButton.removeAttribute("aria-disabled");
-              submitButton.textContent = defaultButtonText;
-              submitButton.removeAttribute("aria-busy");
+              if (timeoutId) clearTimeout(timeoutId);
+              setSubmitting(false);
             });
         });
       })();

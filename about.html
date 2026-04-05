@@ -3,19 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About | TechNova Pro</title>
+    <title>About TechNova Pro | Business IT Support & Technology Services</title>
     <meta
       name="description"
-      content="Learn about TechNova Pro, its core focus, and its approach to IT hardware, networking, and business technology support."
+      content="Learn how TechNova Pro supports businesses with practical IT services, dependable delivery, and a clear service approach."
     />
     <meta name="theme-color" content="#0d1422" />
     <link rel="canonical" href="https://technova-pro.com/about.html" />
-    <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
-    <link rel="shortcut icon" href="/favicon.ico?v=2" />
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" />
     <link rel="manifest" href="/site.webmanifest" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-37M4ZJQTX5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-37M4ZJQTX5');
+    </script>
+    <link rel="preload" href="style.css" as="style" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -27,12 +31,13 @@
         </a>
 
         <div class="nav-right">
-          <nav class="nav-links">
-            <a href="services.html">Services</a>
+          <nav class="nav-links" aria-label="Primary">
+            <a href="index.html">Home</a>
             <a href="about.html" aria-current="page">About</a>
-            <a href="contact.html">Contact</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html" class="nav-contact-link">Contact</a>
           </nav>
-          <a href="contact.html" class="btn">Request a Quote</a>
+          <a href="contact.html#contact-form" class="btn">Get a Quote</a>
         </div>
       </div>
     </header>
@@ -41,11 +46,11 @@
       <section class="page-hero">
         <div class="container">
           <div class="hero-label">About</div>
-          <h1>Built around practical support and long-term business value.</h1>
+          <h1>Business IT support built on reliability and practical delivery.</h1>
           <p>
-            TechNova Pro focuses on reliable technology supply and service with
-            a business-first mindset, clear communication, and dependable
-            execution.
+            TechNova Pro supports businesses with IT hardware supply, networking
+            solutions, and practical business technology support that keeps
+            operations stable and efficient.
           </p>
         </div>
       </section>
@@ -53,36 +58,42 @@
       <section class="about page-shell">
         <div class="container about-grid">
           <div class="about-panel">
-            <div class="section-head" style="margin-bottom: 0; display: block">
+            <div class="section-head block">
               <h2>About TechNova Pro</h2>
               <p>
-                TechNova Pro is focused on IT hardware, networking, and
-                business technology solutions. The aim is to provide reliable
-                products, practical support, and trusted service for both
-                business and retail clients.
+                We provide dependable IT infrastructure and support for
+                businesses that need clear communication, responsive service,
+                and practical outcomes. Our goal is to deliver business
+                solutions that work day to day and scale with operational needs
+                over time.
               </p>
             </div>
           </div>
 
           <div class="about-panel">
-            <h3
-              style="
-                font-size: 1.2rem;
-                margin-bottom: 8px;
-                letter-spacing: -0.02em;
-              "
-            >
-              Core Focus
-            </h3>
+            <h3 class="panel-title">How We Work</h3>
             <ul class="about-list">
-              <li>Reliable hardware and technology solutions</li>
-              <li>Networking support for office and business environments</li>
-              <li>Practical service with a business-first mindset</li>
+              <li>Practical solutions designed for real business environments</li>
+              <li>Reliable delivery and support to reduce disruption and downtime</li>
+              <li>A business-first mindset focused on operational priorities</li>
               <li>
-                A strong foundation for future vendor and distributor
-                partnerships
+                A long-term goal of building strong vendor and distributor
+                relationships
               </li>
             </ul>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="section-cta">
+            <p>
+              Ready to discuss your requirements? Share your scope and we will
+              provide practical next steps.
+            </p>
+            <div class="section-cta-actions">
+              <a href="contact.html#contact-form" class="btn">Get a Quote</a>
+              <a href="services.html" class="btn-outline">Review Services</a>
+            </div>
           </div>
         </div>
       </section>
