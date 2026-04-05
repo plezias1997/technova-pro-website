@@ -62,9 +62,20 @@ a {
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
   font-size: 1.7rem;
   font-weight: 700;
   letter-spacing: -0.03em;
+}
+
+.brand-logo {
+  width: 42px;
+  height: 42px;
+  object-fit: cover;
+  border-radius: 50%;
+  flex-shrink: 0;
 }
 
 .brand span {

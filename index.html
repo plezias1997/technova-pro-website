@@ -8,6 +8,15 @@
       name="description"
       content="TechNova Pro provides IT hardware, networking, and business technology solutions for modern businesses."
     />
+    <link
+      rel="icon"
+      type="image/jpeg"
+      href="assets/662115644_2135225717299164_4491362638966618411_n.jpg"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="assets/662115644_2135225717299164_4491362638966618411_n.jpg"
+    />
     <style>
       :root {
         --bg: #0d1422;
@@ -73,9 +82,20 @@
       }
 
       .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
         font-size: 1.7rem;
         font-weight: 700;
         letter-spacing: -0.03em;
+      }
+
+      .brand-logo {
+        width: 42px;
+        height: 42px;
+        object-fit: cover;
+        border-radius: 50%;
+        flex-shrink: 0;
       }
 
       .brand span {
@@ -507,7 +527,14 @@
   <body>
     <header class="site-header">
       <div class="container nav">
-        <a href="index.html" class="brand">TechNova <span>Pro</span></a>
+        <a href="index.html" class="brand">
+          <img
+            src="assets/662115644_2135225717299164_4491362638966618411_n.jpg"
+            alt="TechNova Pro logo"
+            class="brand-logo"
+          />
+          <span>TechNova</span> Pro
+        </a>
 
         <div class="nav-right">
           <nav class="nav-links">
